@@ -280,7 +280,7 @@ TimeLens/
 ### Overall Assessment
 TimeLens is a complete, polished, production-ready Chrome extension that successfully combines time tracking with productivity features in a beautiful, privacy-focused package.
 
----
+-----
 
 ## 🚀 Ready to Launch!
 
