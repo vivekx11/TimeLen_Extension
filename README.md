@@ -102,6 +102,7 @@ TimeLens/
 
 ### Data Storage
 ```javascript
+basic logic 
 {
   timeData: {
     "youtube.com": 3600000,  // milliseconds
