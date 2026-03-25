@@ -1,4 +1,6 @@
 """
+this code is to create a logo in any px
+
 Generate TimeLens extension icons
 Run: python generate_icons.py
 Requires: pip install pillow
