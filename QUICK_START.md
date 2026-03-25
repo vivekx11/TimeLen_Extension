@@ -1,6 +1,6 @@
 # TimeLens Quick Start Guide
 
-## 🚀 Get Started in 3 Minutes
+
 
 ### Step 1: Install (1 minute)
 1. Open Chrome and go to `chrome://extensions/`
