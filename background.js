@@ -1,6 +1,6 @@
 // TimeLens Background Service Worker
 // Tracks active tab usage and manages time data
-
+// backend jo responce karta hai sub chez ko
 let currentTab = null;
 let startTime = null;
 let isIdle = false;
