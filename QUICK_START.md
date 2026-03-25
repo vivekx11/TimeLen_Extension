@@ -33,7 +33,7 @@ Want to limit time on distracting sites?
 
 Now when you exceed the limit, you'll be redirected to a friendly reminder page!
 
----
+-----
 
 ## 📊 Understanding Your Dashboard
 
