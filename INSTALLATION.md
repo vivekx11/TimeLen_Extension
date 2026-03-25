@@ -216,6 +216,6 @@ Edit `background.js` `getNextMidnight()` function to change reset schedule.
 ### Future Auto-Updates
 When published to Chrome Web Store, updates will be automatic.
 
----
+------
 
 Need more help? Check README.md or create an issue on GitHub.
