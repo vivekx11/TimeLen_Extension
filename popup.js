@@ -1,6 +1,6 @@
 // TimeLens Popup Script
 // Handles UI updates and user interactions
-
+// formating 
 // Format milliseconds to readable time
 function formatTime(ms) {
   const seconds = Math.floor(ms / 1000);
