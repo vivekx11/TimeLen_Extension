@@ -225,7 +225,7 @@ What actually happens
 Attach if applicable
 
 **Console Errors**
-Paste any error messages
+Paste any error messages.
 ```
 
 ## Test Results Log
