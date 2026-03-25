@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Blocked - TimeLens</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
+      background: rgba(108, 99, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .icon svg {
+      width: 60px;
+      height: 60px;
+      color: #6c63ff;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 16px;
+      color: #6c63ff;
+    }
+
+    .site-name {
+      font-size: 20px;
+      color: #aaa;
+      margin-bottom: 24px;
+    }
+
+    .message {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 32px;
+    }
+
+    .stats {
+      background: rgba(108, 99, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #6c63ff;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .primary-btn {
+      background: #6c63ff;
+      color: white;
+    }
+
+    .primary-btn:hover {
+      background: #5a52d5;
+      transform: translateY(-2px);
+    }
+
+    .secondary-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #eee;
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        <path d="M15 9l-6 6m0-6l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    
+    <h1>Time Limit Reached</h1>
+    <div class="site-name" id="siteName">example.com</div>
+    
+    <p class="message">
+      You've reached your daily time limit for this website. 
+      Focus mode is helping you stay productive! 🎯
+    </p>
+    
+    <div class="stats">
+      <div class="stat-label">Time spent today</div>
+      <div class="stat-value" id="timeSpent">0h 0m</div>
+    </div>
+    
+    <div class="actions">
+      <button class="secondary-btn" onclick="window.close()">Close Tab</button>
+      <button class="primary-btn" onclick="openSettings()">Adjust Limits</button>
+    </div>
+  </div>
+
+  <script>
+    // Get site from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const site = urlParams.get('site');
+    
+    if (site) {
+      document.getElementById('siteName').textContent = site;
+      
+      // Load time data
+      chrome.storage.local.get(['timeData', 'settings'], (data) => {
+        if (data.timeData && data.timeData[site]) {
+          const ms = data.timeData[site];
+          const hours = Math.floor(ms / (1000 * 60 * 60));
+          const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+          document.getElementById('timeSpent').textContent = `${hours}h ${minutes}m`;
+        }
+      });
+    }
+    
+    function openSettings() {
+      chrome.runtime.openOptionsPage();
+    }
+  </script>
+</body>
+</html>

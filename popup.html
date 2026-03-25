@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeLens</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h1>TimeLens</h1>
+      </div>
+      <button id="settingsBtn" class="icon-btn" title="Settings">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 1v6m0 6v10M1 12h6m6 0h10" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Total Time Card -->
+    <div class="total-time-card">
+      <div class="total-label">Today's Total</div>
+      <div class="total-time" id="totalTime">0h 0m</div>
+      <div class="motivational-message" id="motivationalMsg"></div>
+    </div>
+
+    <!-- Top Sites Section -->
+    <div class="section">
+      <h2>Top Websites</h2>
+      <div id="topSites" class="sites-list">
+        <div class="empty-state">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor" opacity="0.3"/>
+          </svg>
+          <p>Start browsing to see your stats</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Focus Mode Section -->
+    <div class="section focus-section">
+      <div class="focus-header">
+        <h2>Focus Mode</h2>
+        <label class="toggle">
+          <input type="checkbox" id="focusModeToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p class="focus-description">Block sites after reaching time limits</p>
+      <button id="manageLimitsBtn" class="secondary-btn">Manage Limits</button>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button id="resetBtn" class="danger-btn">Reset Today's Data</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Last updated: <span id="lastUpdate">just now</span></p>
+    </footer>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Time Limits</h2>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description">Set daily time limits for websites (in minutes)</p>
+        <div id="limitsContainer"></div>
+        <button id="addLimitBtn" class="secondary-btn">+ Add Limit</button>
+      </div>
+      <div class="modal-footer">
+        <button id="saveLimitsBtn" class="primary-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
