@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "TimeLens",
   "version": "1.0.0",
-  "description": "Track your website usage time with insights and focus mode and complete a work",
+  "description": "Track your website usage time with insights and focus mode and complete a work asap",
   "permissions": [
     "tabs",
     "storage",
