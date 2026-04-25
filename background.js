@@ -31,7 +31,7 @@ async function initializeStorage() {
       }
     });
   }
-  
+  // background js 
   if (!data.lastReset) {
     await chrome.storage.local.set({ lastReset: new Date().toDateString() });
   }
