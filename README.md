@@ -1,5 +1,5 @@
 # TimeLens - Website Time Tracker Chrome Extension
-
+---------------------------------------------------
 A beautiful, lightweight Chrome extension that tracks your website usage time with insights and focus mode capabilities.
 
 ## Features
